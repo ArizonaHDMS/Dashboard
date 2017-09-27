@@ -1,2 +1,2 @@
 # Dashboard
-Framework for creating a Dashboard
+Framework for creating a Dashboard in Shiny
