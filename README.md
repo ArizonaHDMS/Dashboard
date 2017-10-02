@@ -1,6 +1,9 @@
 # Dashboard
 A framework for natural heritage programs to create their own Dashboard in Shiny!
 
+###Live Demo
+[https://arizonahdms.shinyapps.io/dashboard/](https://arizonahdms.shinyapps.io/dashboard/)
+
 If you do not want to have to install Git, you can just download this repository. Or, run:  
 `shiny::runGitHub("Dashboard", "ArizonaHDMS")`
 
