@@ -39,7 +39,7 @@ crithab <- readOGR('data/CritHab.shp')
 crithab@data %>% mutate_if(is.factor, as.character) -> crithab@data
 
 # SWAP species distribution models (example data)
-models <- raster::readAll(raster::stack(list.files('H:/WMHB/HDMS/Dashboard/data/swap_models', pattern='.tif$', full.names = T)))
+models <- raster::readAll(raster::stack(list.files('data/models', pattern='.tif$', full.names = T)))
 
 # Lookup tables to make some coding easier
 abstract_lookup <- read_csv('data/lookup/abstract_lookup.csv')
