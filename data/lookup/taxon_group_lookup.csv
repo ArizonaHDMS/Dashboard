@@ -1,0 +1,9 @@
+taxon_group,pattern
+Amphibians,^AA
+Birds,^AB
+Fish,^AF
+Mammals,^AM
+Bats Only,^AMAC
+Reptiles,^AR
+Inverts,^I
+Plants,^P

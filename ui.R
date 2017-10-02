@@ -1,0 +1,1 @@
+ui = (htmlOutput("page"))

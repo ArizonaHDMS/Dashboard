@@ -1,0 +1,8 @@
+coord_type,proj4string,example_x,example_y
+Decimal degrees,+proj=longlat,-111.1234,33.1234
+DMS,+proj=longlat,-111.1 22.2 33.3,33.3 44.4 55.5
+Degrees decimal minutes,+proj=longlat,-111 22.333,33 44.555
+UTM NAD83 Z12,+init=epsg:26912,654321,7654321
+UTM NAD27 Z12,+init=epsg:26712,654321,7654321
+UTM NAD83 Z11,+init=epsg:26911,654321,7654321
+UTM NAD27 Z11,+init=epsg:26711,654321,7654321
