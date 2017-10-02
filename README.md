@@ -1,7 +1,14 @@
 # Dashboard
-Framework for creating a Dashboard in Shiny -- Coming soon!
+Framework for creating a Dashboard in Shiny -- Version in testing!
 
-In the meantime, feel free to contact us:
+The easiest way to run this code is to clone this repository on your computer, then call up `server.R` and click the "Run App" button (see screenshots below)
+
+Or, alternatively run:
+`shiny::runGitHub("shiny_example", "rstudio")`
+
+This assumes you have all necessary packages already installed on your computer (see `global.R` for a list)
+
+Please feel free to contact us about any aspect of the Dashboard:
 * Matt King (HDMS Systems Manager) mking [at] azgfd.gov
 * Sabra Tonn (HDMS Program Supervisor) stonn [at] azgfd.gov
 
