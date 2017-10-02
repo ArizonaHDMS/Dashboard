@@ -1,12 +1,12 @@
 # Dashboard
 Framework for creating a Dashboard in Shiny -- Version in testing!
 
-The best way to run this code is to clone this repository via RStudio, then call up `server.R` and click the "Run App" button (see screenshots below). This repository uses `packrat` to manage all the external packages used in the Dashboard.
+The best way to run this code is to clone this repository via RStudio, then call up `server.R` and click the "Run App" button (see screenshots below). You will need to have Git setup through RStudio. Check out this excellent guide. This repository uses `packrat` to manage all the external packages used in the Dashboard.
 
 Alternatively, you can run:  
 `shiny::runGitHub("Dashboard", "ArizonaHDMS")`
 
-BUT! This assumes you have all necessary packages already installed on your computer (see `global.R` for a list). I've included a []script you can run to install all of the correct packages. Currently, we are using the development versions of `leaflet` and `leaflet.extra` to use the OSM geocoding tool.
+BUT! This assumes you have all necessary packages already installed on your computer (see `global.R` for a list). I've included a script you can run to install all of the correct packages. Currently, we are using the development versions of `leaflet` and `leaflet.extra` to use the OSM geocoding tool.
 
 Please feel free to contact us about any aspect of the Dashboard:
 * Matt King (HDMS Systems Manager) mking [at] azgfd.gov
