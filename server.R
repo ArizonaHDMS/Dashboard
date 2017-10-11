@@ -53,16 +53,15 @@ user_names <- read_csv('data/lookup/username_lookup.csv')
 source('ui_login.R')
 source('ui_dashboard.R')
 
-Logged = TRUE;
-my_username <- c('username')
-my_password <- c('password')
+Logged = TRUE;  # Change this value to FALSE if you want to make users login
+my_username <- c('username')  # Setting user names as vector
+my_password <- c('password')  # Setting passwords as vector (this is NOT good practice. Should be using a package that can hide credentials from code)
 
 ui = (htmlOutput("page"))
 
-update_time <- ymd_hm(paste(today(), "12:56"), tz='America/Phoenix')
-interval <- now(tz='America/Phoenix') %--% update_time
-
 server <- function(input, output, session) {
+  
+  # This section needs to be cleaned up, not using some of these reactive values
   
   id_source_proxy <- dataTableProxy('id_source_table')  # To change to DT
   pod_map_proxy <- dataTableProxy('pod_map_table')  # To change to DT
@@ -208,7 +207,9 @@ server <- function(input, output, session) {
   
   
 update_marker <- function(x){
-
+    
+    # The following is a bit clunky, can be made more efficient
+  
     if(nrow(x) > 0){
       marker <- character(nrow(x))
       marker[grepl(x$IdSource, pattern = 'eBird Breeding')] <- 'ebird_breeding'
@@ -828,23 +829,6 @@ update_marker <- function(x){
             actionButton('move_coord_confirm', 'Confirm', icon = icon('thumbs-o-up'),
                          style = "color: #000; background-color: #fff;")
           )
-          # title='Input Coordinate',
-          # selectInput('coord_type',
-          #             label='Choose coordinate type',
-          #             choices = coord_type$coord_type),
-          # em('use spaces for DMS or DDM'),
-          # p(em('if no seconds are given, put 0')),
-          # p(em('do NOT use negative sign for longitude')),
-          # span(style='display: inline-block', textInput('coord_x_fix', label = 'Long/Easting', width = 225)),
-          # span(style='display: inline-block', textInput('coord_y_fix', label = 'Lat/Northing', width = 225)),
-          # br(),
-          # easyClose = T,
-          # footer = tagList(
-          #   actionButton('move_coord_cancel', 'Cancel', icon = icon('ban'),
-          #                style = "color: #000; background-color: #fff;"),
-          #   actionButton('move_coord_confirm', 'Submit Coordinate', icon = icon('thumbs-o-up'),
-          #                style = "color: #000; background-color: #fff;")
-          # )
         )
       )
     }
@@ -1383,6 +1367,7 @@ update_marker <- function(x){
   })
   
   observeEvent(input$map_marker_mouseout,{
+    # Mouseout event on a user-created coordinate triggers the update of it's actual geometry
     if('group' %in% names(input$map_marker_mouseout)){
       if(input$map_marker_mouseout$group == 'Coord'){
         coord$df$geometry[coord$df$id == input$map_marker_mouseout$id] <-
@@ -1686,7 +1671,6 @@ update_marker <- function(x){
         addPolylines(data=shp, group=input$layer_name, popup = popupTable(shp)) %>% 
         addLayersControl(overlayGroups = legend$group, options = layersControlOptions(collapsed = FALSE))
     }
-    #shp <<- shp
     removeModal()
     shinyjs::enable('import_confirm')
     shinyjs::enable('import_clear')
@@ -1701,7 +1685,6 @@ update_marker <- function(x){
         easyClose = TRUE,
         footer = NULL
       ))
-    # }
   })
   
   output$export_csv <- {downloadHandler(
